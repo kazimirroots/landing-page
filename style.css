@@ -73,6 +73,9 @@ nav a {
   padding: 12px 28px;
   border-radius: 6px;
   font-weight: 700;
+}
+
+.hero-text .btn {
   align-self: flex-start;
 }
 
@@ -149,6 +152,44 @@ blockquote cite {
   color: var(--color-dark);
   font-style: normal;
   align-self: flex-end;
+}
+
+.cta {
+  padding: 80px 160px;
+  display: flex;
+  justify-content: center;
+}
+
+.cta-box {
+  background-color: var(--color-accent);
+  color: var(--color-text-primary);
+  padding: 48px 64px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 48px;
+  width: 100%;
+}
+
+.cta-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cta-text h2 {
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.cta-text p {
+  font-size: 18px;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 2px solid var(--color-text-primary);
 }
 
 .hero-image {
