@@ -15,11 +15,17 @@
   box-sizing: border-box;
 }
 
+/* ─── Header ─────────────────────────────────────────── */
+
 header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: var(--color-dark);
+  border-bottom: 1px solid rgba(249, 250, 248, 0.08);
   color: var(--color-text-primary);
   padding: 0 var(--spacing-page);
   height: 64px;
@@ -36,15 +42,33 @@ nav a {
   color: var(--color-text-secondary);
   text-decoration: none;
   margin-left: 24px;
+  transition: color 0.2s;
 }
+
+nav a:hover {
+  color: var(--color-text-primary);
+}
+
+/* ─── Hero ───────────────────────────────────────────── */
 
 .hero {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--color-dark);
+  background: radial-gradient(ellipse at 65% 50%, #2d3f55 0%, var(--color-dark) 70%);
   color: var(--color-text-primary);
   padding: 80px var(--spacing-page);
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hero-text {
@@ -52,6 +76,7 @@ nav a {
   flex-direction: column;
   gap: 24px;
   max-width: 480px;
+  animation: fadeSlideUp 0.6s ease-out;
 }
 
 .hero-text h1 {
@@ -69,6 +94,24 @@ nav a {
   color: var(--color-text-secondary);
 }
 
+.hero-image {
+  width: 400px;
+  height: 260px;
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-text-secondary);
+  animation: fadeSlideUp 0.6s ease-out 0.2s both;
+}
+
+/* ─── Buttons ────────────────────────────────────────── */
+
 .btn {
   display: inline-block;
   background-color: var(--color-accent);
@@ -77,24 +120,36 @@ nav a {
   padding: 12px 28px;
   border-radius: 6px;
   font-weight: 700;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
 }
 
 .hero-text .btn {
   align-self: flex-start;
 }
 
-.hero-image {
-  width: 400px;
-  height: 260px;
-  background-color: #374151;
-  border-radius: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--color-text-secondary);
+.btn-outline {
+  background-color: transparent;
+  border: 2px solid var(--color-text-primary);
+}
+
+/* ─── Info ───────────────────────────────────────────── */
+
+.info,
+.quote,
+.cta,
+footer {
+  animation: fadeSlideUp 0.6s ease-out both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 25%;
 }
 
 .info {
+  background: linear-gradient(135deg, #eef2ff 0%, #f8faff 100%);
   padding: 80px var(--spacing-page);
   display: flex;
   flex-direction: column;
@@ -119,6 +174,19 @@ nav a {
   align-items: center;
   gap: 12px;
   text-align: center;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 24px rgba(56, 130, 246, 0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(56, 130, 246, 0.18);
 }
 
 .card-image {
@@ -140,8 +208,10 @@ nav a {
   color: var(--color-text-muted);
 }
 
+/* ─── Quote ──────────────────────────────────────────── */
+
 .quote {
-  background-color: var(--color-light-bg);
+  background: linear-gradient(135deg, #d4dbe8 0%, var(--color-light-bg) 100%);
   padding: 80px var(--spacing-page);
   display: flex;
   justify-content: center;
@@ -149,6 +219,13 @@ nav a {
 
 blockquote {
   max-width: 680px;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 16px;
+  padding: 40px 48px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -169,22 +246,39 @@ blockquote cite {
   align-self: flex-end;
 }
 
+/* ─── CTA ────────────────────────────────────────────── */
+
 .cta {
+  background-color: var(--color-accent);
   padding: 80px var(--spacing-page);
   display: flex;
   justify-content: center;
 }
 
 .cta-box {
-  background-color: var(--color-accent);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   color: var(--color-text-primary);
   padding: 48px 64px;
-  border-radius: 8px;
+  border-radius: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 48px;
   width: 100%;
+}
+
+/* ─── Footer ─────────────────────────────────────────── */
+
+footer {
+  background-color: var(--color-dark);
+  color: var(--color-text-secondary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 64px;
 }
 
 .cta-text {
@@ -202,16 +296,97 @@ blockquote cite {
   font-size: 18px;
 }
 
-.btn-outline {
-  background-color: transparent;
-  border: 2px solid var(--color-text-primary);
+/* ─── Tablet (≤ 768px) ───────────────────────────────── */
+
+@media (max-width: 900px) {
+  :root {
+    --spacing-page: 32px;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .hero-text {
+    align-items: center;
+  }
+
+  .hero-text .btn {
+    align-self: auto;
+  }
+
+  .hero-image {
+    width: 100%;
+    max-width: 480px;
+    height: 220px;
+  }
+
+  .hero-text h1 {
+    font-size: 36px;
+  }
+
+  .cards {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .card {
+    width: calc(50% - 16px);
+  }
+
+  blockquote p {
+    font-size: 26px;
+  }
+
+  blockquote {
+    padding: 32px;
+  }
+
+  .cta-box {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 32px;
+  }
 }
 
-footer {
-  background-color: var(--color-dark);
-  color: var(--color-text-secondary);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 64px;
+/* ─── Mobile (≤ 480px) ───────────────────────────────── */
+
+@media (max-width: 480px) {
+  :root {
+    --spacing-page: 20px;
+  }
+
+  header {
+    height: auto;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  nav a {
+    margin-left: 12px;
+  }
+
+  .hero-text h1 {
+    font-size: 28px;
+  }
+
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  blockquote p {
+    font-size: 22px;
+  }
 }
