@@ -4,6 +4,8 @@
   --color-light-bg: #e5e7eb;
   --color-text-primary: #f9faf8;
   --color-text-secondary: #e5e7eb;
+  --color-text-muted: #6b7280;
+  --spacing-page: 160px;
 }
 
 * {
@@ -19,13 +21,15 @@ header {
   align-items: center;
   background-color: var(--color-dark);
   color: var(--color-text-primary);
-  padding: 0 160px;
+  padding: 0 var(--spacing-page);
   height: 64px;
 }
 
 .logo {
   font-size: 24px;
   font-weight: 900;
+  color: var(--color-text-primary);
+  text-decoration: none;
 }
 
 nav a {
@@ -40,7 +44,7 @@ nav a {
   align-items: center;
   background-color: var(--color-dark);
   color: var(--color-text-primary);
-  padding: 80px 160px;
+  padding: 80px var(--spacing-page);
 }
 
 .hero-text {
@@ -79,8 +83,19 @@ nav a {
   align-self: flex-start;
 }
 
+.hero-image {
+  width: 400px;
+  height: 260px;
+  background-color: #374151;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-text-secondary);
+}
+
 .info {
-  padding: 80px 160px;
+  padding: 80px var(--spacing-page);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -122,12 +137,12 @@ nav a {
 
 .card p {
   font-size: 16px;
-  color: #6b7280;
+  color: var(--color-text-muted);
 }
 
 .quote {
   background-color: var(--color-light-bg);
-  padding: 80px 160px;
+  padding: 80px var(--spacing-page);
   display: flex;
   justify-content: center;
 }
@@ -155,7 +170,7 @@ blockquote cite {
 }
 
 .cta {
-  padding: 80px 160px;
+  padding: 80px var(--spacing-page);
   display: flex;
   justify-content: center;
 }
@@ -199,15 +214,4 @@ footer {
   justify-content: center;
   align-items: center;
   height: 64px;
-}
-
-.hero-image {
-  width: 400px;
-  height: 260px;
-  background-color: #374151;
-  border-radius: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--color-text-secondary);
 }
