@@ -192,6 +192,15 @@ blockquote cite {
   border: 2px solid var(--color-text-primary);
 }
 
+footer {
+  background-color: var(--color-dark);
+  color: var(--color-text-secondary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 64px;
+}
+
 .hero-image {
   width: 400px;
   height: 260px;
