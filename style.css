@@ -122,6 +122,35 @@ nav a {
   color: #6b7280;
 }
 
+.quote {
+  background-color: var(--color-light-bg);
+  padding: 80px 160px;
+  display: flex;
+  justify-content: center;
+}
+
+blockquote {
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+blockquote p {
+  font-size: 36px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--color-dark);
+}
+
+blockquote cite {
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--color-dark);
+  font-style: normal;
+  align-self: flex-end;
+}
+
 .hero-image {
   width: 400px;
   height: 260px;
